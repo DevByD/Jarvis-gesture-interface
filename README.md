@@ -104,7 +104,7 @@ Inspired by cinematic interfaces like **J.A.R.V.I.S**.
 
 # 👨‍💻 Author
 
-**Your Name**
+**Dharesh SD**
 
 Frontend Developer | Computer Vision Enthusiast
 

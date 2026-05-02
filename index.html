@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>J.A.R.V.I.S Interface</title>
+
+<style>
+
+/* =========================
+   BODY
+========================= */
+
+body{
+margin:0;
+overflow:hidden;
+background:black;
+font-family:Consolas, monospace;
+color:#00ffff;
+}
+
+/* =========================
+   VIDEO BACKGROUND
+========================= */
+
+video{
+
+position:absolute;
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(0.35);
+
+}
+
+/* =========================
+   CANVAS
+========================= */
+
+canvas{
+
+position:absolute;
+width:100%;
+height:100%;
+
+}
+
+/* =========================
+   TOP TITLE
+========================= */
+
+.top-bar{
+
+position:absolute;
+
+top:10px;
+left:20px;
+
+font-size:20px;
+letter-spacing:6px;
+
+text-shadow:
+0 0 10px cyan,
+0 0 20px cyan;
+
+}
+
+/* =========================
+   CLOCK
+========================= */
+
+.clock{
+
+position:absolute;
+
+top:45px;
+left:20px;
+
+font-size:36px;
+
+text-shadow:
+0 0 15px cyan;
+
+}
+
+/* =========================
+   ENERGY TEXT
+========================= */
+
+.energy{
+
+position:absolute;
+
+top:45px;
+right:30px;
+
+font-size:28px;
+
+color:#ff5500;
+
+text-shadow:
+0 0 10px orange,
+0 0 20px red;
+
+}
+
+/* =========================
+   CENTER BAR
+========================= */
+
+.center-bar{
+
+position:absolute;
+
+top:70px;
+left:50%;
+
+transform:translateX(-50%);
+
+border:1px solid cyan;
+
+padding:6px 25px;
+
+font-size:13px;
+
+letter-spacing:2px;
+
+text-shadow:
+0 0 8px cyan;
+
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+.left-panel{
+
+position:absolute;
+
+left:20px;
+top:200px;
+
+font-size:12px;
+
+line-height:18px;
+
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.right-panel{
+
+position:absolute;
+
+right:20px;
+top:200px;
+
+font-size:12px;
+
+line-height:18px;
+
+text-align:right;
+
+}
+
+/* =========================
+   CROSSHAIR
+========================= */
+
+.crosshair{
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:90px;
+height:90px;
+
+border:1px dashed cyan;
+
+border-radius:50%;
+
+box-shadow:
+0 0 10px cyan;
+
+}
+
+/* =========================
+   RADAR
+========================= */
+
+.radar{
+
+position:absolute;
+
+right:40px;
+bottom:40px;
+
+width:110px;
+height:110px;
+
+border-radius:50%;
+
+border:1px solid cyan;
+
+box-shadow:
+0 0 10px cyan;
+
+animation:rotateRadar 6s linear infinite;
+
+}
+
+@keyframes rotateRadar{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* =========================
+   SCANNER BAR
+========================= */
+
+.scan-bar{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:2px;
+
+background:cyan;
+
+box-shadow:
+0 0 10px cyan;
+
+animation:scanMove 4s linear infinite;
+
+}
+
+@keyframes scanMove{
+
+0%{
+top:0;
+}
+
+100%{
+top:100%;
+}
+
+}
+
+/* =========================
+   BORDER FRAME
+========================= */
+
+.border{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+border:2px solid rgba(0,255,255,0.15);
+
+box-shadow:
+inset 0 0 60px rgba(0,255,255,0.25);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- VIDEO -->
+
+<video id="video" autoplay></video>
+
+<!-- CANVAS -->
+
+<canvas id="canvas"></canvas>
+
+<!-- TOP TITLE -->
+
+<div class="top-bar">
+
+J.A.R.V.I.S SYSTEM
+
+</div>
+
+<!-- CLOCK -->
+
+<div class="clock" id="clock">
+
+00:00:00
+
+</div>
+
+<!-- ENERGY -->
+
+<div class="energy">
+
+3.2 GW
+
+</div>
+
+<!-- CENTER INFO -->
+
+<div class="center-bar">
+
+BIOMETRIC ENERGY TRACKED
+
+</div>
+
+<!-- LEFT PANEL -->
+
+<div class="left-panel">
+
+NEURAL<br>
+OPTIC<br>
+KINETIC<br>
+SERVO<br>
+THRUST
+
+</div>
+
+<!-- RIGHT PANEL -->
+
+<div class="right-panel">
+
+TEMP<br>
+SHIELD<br>
+ARMOR<br>
+REPULSOR<br>
+UNIBEAM
+
+</div>
+
+<!-- CROSSHAIR -->
+
+<div class="crosshair"></div>
+
+<!-- RADAR -->
+
+<div class="radar"></div>
+
+<!-- SCAN BAR -->
+
+<div class="scan-bar"></div>
+
+<!-- BORDER -->
+
+<div class="border"></div>
+
+<!-- MediaPipe -->
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+<!-- YOUR SCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
